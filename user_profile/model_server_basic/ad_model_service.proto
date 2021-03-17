@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package ad_model;
+
+import "model_service.proto";  // ads-proto
+
+service ModelService {
+  // 从广告召回中选择若干最佳候选
+  rpc GetAds (AdRequest) returns (AdResponse);
+}
+
+message ExpParams {
+  repeated string exp_labels = 1;
+  map<string, int64> exp_params = 2;
+}
+
+message AdRequest {
+  modelx.PredictionRequest request = 1;
+  // ad_user_profile.UserProfile
+  bytes user_profile = 2;
+  ExpParams exp_params = 3;
+}
+
+message AdResponse {
+  modelx.PredictionResponse response = 1;
+}

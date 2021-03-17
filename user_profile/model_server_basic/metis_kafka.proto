@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package metis;
+
+import "model_feature.proto";
+
+message RecAdInfo {
+  string request_id = 1;
+  string user_id = 2;  // beyla_id
+  string pos_id = 3;
+  string package_name = 4;  // Contexts.package_name
+  double floor_price = 5; // Contexts.floor_price
+  string creative_id = 6;
+  int64 camp_id = 7;
+  string app_id = 8;  // ModelResult.app_id
+  int64 req_time = 9;  // Feature.Context.req_time
+  double bid_price = 10;  // Creatives.bid_price
+  double pctr = 11;
+  double pcvr = 12;
+  Feature feature = 13;  // sprs-ad-proto/model_features/model_feature.proto
+  string nation = 14;
+  bool explore_flow = 15;
+};
+
+// 下发推荐的ad_count个广告。用于离线训练。
+message RecAds {
+  repeated RecAdInfo rec_ads = 1;
+};
+
+
+// 请求的全部广告信息。用于统计分析。
+message ReqAdInfo {
+  string request_id = 1;
+  string user_id = 2;  // beyla_id
+  string pos_id = 3;
+  string package_name = 4;  // Contexts.package_name
+  double floor_price = 5; // Contexts.floor_price
+  string creative_id = 6;
+  int64 camp_id = 7;
+  string app_id = 8;  // ModelResult.app_id
+  int64 req_time = 9;  // Feature.Context.req_time
+  double bid_price = 10;  // Creatives.bid_price
+  double pctr = 11;
+  double pcvr = 12;
+  string nation = 13;
+  bool explore_flow = 14;
+};
+
+message ReqAds {
+  repeated ReqAdInfo req_ads = 1;
+};

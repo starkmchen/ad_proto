@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package ad_counter;
+
+import "ad_common.proto";
+
+message AdCount {
+  // key: camp, pkg, category, pid_pkg, pid_camp, auto_dl
+  map<string, ad_common.BusinessCount> counters = 1;
+}

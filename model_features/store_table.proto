@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "model_count_feature.proto";
+import "model_ad.proto";
+import "model_user.proto";
+
+// share store key: user_id, value: StoreUserCounter
+message StoreUserCounter {
+    map<string, BusinessCountFeature> store_user_counter = 1;
+};
+
+// share store key: user_id, value: StoreUserProfile
+message StoreUserProfile {
+    UserBase user_base = 1;
+    UserBehavior user_behavior = 2;
+};
+
+// file
+message StoreAdCounter {
+    map<string, BusinessCountFeature> store_ad_counter = 1;
+};
+
+// file
+message StoreAdInfo {
+    map<string, AdInfo> ad_infos = 1; // key: ad_id
+};

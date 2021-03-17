@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package ad_feature;
+
+import "ad_counter.proto";
+import "ad_info.proto";
+import "ad_model_service.proto";
+
+message AdData {
+  ad_info.AdInfo ad_info = 1;
+  ad_counter.AdCount ad_counter = 2;
+}
+
+message FeatureInput {
+  ad_model.AdRequest ad_request = 1;
+  repeated AdData ad_data = 2;
+  int64 req_time = 3;  // 毫秒
+};

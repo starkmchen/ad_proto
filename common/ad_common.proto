@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package ad_common;
+
+message BusinessCount {
+  message ActionCount {
+    int32 imp = 1;
+    int32 click = 2;
+    int32 install = 3;
+    int32 attr_install = 4;
+  };
+  // key: window (14d, 7h, ...)
+  map<string, ActionCount> window_action_counts = 1;
+}
