@@ -20,6 +20,7 @@ message RecAdInfo {
   Feature feature = 13;  // sprs-ad-proto/model_features/model_feature.proto
   string nation = 14;
   bool explore_flow = 15;
+  bool new_ad_flow = 16;
 };
 
 // 下发推荐的ad_count个广告。用于离线训练。
